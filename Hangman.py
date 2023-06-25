@@ -7,7 +7,7 @@ class hang:
     def onePlayer(self):
         n =  random.randint(0, len(self.wordList)-1)
         word = self.wordList[n]
-        print(word)
+        print("the answer is ", word)
         encrypt = ""
         if(len(word)<=6):
             n1 = random.randint(0,(len(word))//2)
@@ -17,7 +17,7 @@ class hang:
                 if(n1==i or n2==i):
                     encrypt = encrypt+word[i]
                 else:
-                    encrypt = encrypt+"_ "
+                    encrypt = encrypt+"_"
         
         elif(len(word)>6 and len(word)<=10):
             n1 = random.randint(0,(len(word))//3)
@@ -28,7 +28,7 @@ class hang:
                 if(n1==i or n2==i or n3==i):
                     encrypt = encrypt+word[i]
                 else:
-                    encrypt = encrypt+"_ "
+                    encrypt = encrypt+"_"
         else:
             n1 = random.randint(0,(len(word))//4)
             n2 = random.randint(((len(word))//4)+1,((len(word))//4)*2)
@@ -48,13 +48,18 @@ class hang:
             
             if char in word:
                 encrypt = ""
-                for i in range(len(word)):
+                for g in range(len(word)):
                     
-                    if(word[i]==char):
+                    if(word[g]==char):
                         encrypt = encrypt+ char
                     else:
-                        encrypt = encrypt+ va[i]
+                        encrypt = encrypt+ va[g]
+            if (word==encrypt):
+                print("you completed the game in ", i+1, " chances")
+                print("the answer is ", word)
+                return
 
+        print("you lost, the answer is ", word)    
 ob = hang()
 ob.readFile()
 ob.onePlayer()
