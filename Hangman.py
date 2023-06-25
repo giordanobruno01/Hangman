@@ -117,7 +117,3 @@ while(True):
 
 
 
-
-
-p1 = input("player 1 name: ")
-p2 = input("player 2 name: ")
